@@ -1,0 +1,17 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Create Post{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Create your Post {{ user.username }}!
+  <form method='POST'> {% csrf_token %}
+    {{ form.as_p }}
+    <input type='submit' value='Submit' />
+  </form>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+{% endblock %}

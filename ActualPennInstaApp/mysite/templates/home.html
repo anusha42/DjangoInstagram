@@ -1,0 +1,20 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Welcome to your feed {{ user.username }}!
+  
+  {% for item in all %}
+    <p> {{ item }} </p>
+  {% endfor %}
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+  <p><a href="{% url 'createPost' %}">Create Post</a></p>
+  <p><a href="{% url 'viewPosts' %}">View All Posts</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+{% endblock %}
