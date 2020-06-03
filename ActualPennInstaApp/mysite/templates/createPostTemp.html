@@ -5,7 +5,7 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  Create your Post {{ user.username }}!
+  <h2> Create your Post {{ user.username }}! </h2>
   <form method='POST'> {% csrf_token %}
     {{ form.as_p }}
     <input type='submit' value='Submit' />
