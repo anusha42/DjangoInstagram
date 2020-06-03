@@ -29,12 +29,10 @@ def createPost(request):
 
 def post_view(request):
     allObj = Post.objects.all()
-    singleObj = Post.objects.get(id=1)
     # context = {
          # 'userid': allObj.usernm,
          # 'text': allObj.post_text
     # }
-    print(singleObj.post_text)
     print(allObj)
     return render(request, 'home.html', {'all':allObj})
     # return render(request, 'postView.html', context)
